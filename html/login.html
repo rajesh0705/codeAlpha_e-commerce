@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Login • MyShop</title>
+
+  <!-- Adjust path if your html/ is elsewhere -->
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\login.css" />
+
+  <!-- Page-level helpers for auth/toast/header -->
+  <script defer src="C:\sreerm\E-Commerce\js\loginmain.js"></script>
+
+  <!-- Page-specific logic -->
+  <script defer src="C:\sreerm\E-Commerce\js\login.js"></script>
+</head>
+<body>
+  <div class="login-container">
+    <form id="loginForm" class="login-box" autocomplete="on" novalidate>
+      <h2>Login</h2>
+
+      <div class="input-group">
+        <input type="text" id="username" name="username" required />
+        <label for="username">Username or Email</label>
+      </div>
+
+      <div class="input-group">
+        <input type="password" id="password" name="password" required />
+        <label for="password">Password</label>
+        <button
+          type="button"
+          class="toggle"
+          id="togglePass"
+          aria-label="Show password"
+          aria-pressed="false"
+        >
+          👁
+        </button>
+        <small id="capsTip" class="tip" aria-live="polite"></small>
+      </div>
+
+      <div class="options">
+        <label class="remember">
+          <input type="checkbox" id="rememberMe" checked />
+          Remember me
+        </label>
+        <a href="#" id="forgotLink">Forgot password?</a>
+      </div>
+
+      <button id="submitBtn" type="submit" class="btn">
+        <span>Login</span>
+      </button>
+
+      <p class="auth-switch">
+        Don’t have an account?
+        <a href="C:\sreerm\E-Commerce\html\register.html">Register</a>
+      </p>
+
+      <p id="message" role="status" aria-live="polite"></p>
+    </form>
+  </div>
+
+  <!-- Toast (used by loginmain.js) -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

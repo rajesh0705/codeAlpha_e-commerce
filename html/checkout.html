@@ -1,0 +1,181 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Checkout • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\checkout.css" />
+  <script defer src="C:\sreerm\E-Commerce\js\checkoutmain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\checkout.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a href="C:\sreerm\E-Commerce\html\products.html">Products</a>
+      <a href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Checkout</h2>
+
+    <div id="emptyState" class="empty hidden">
+      <p>Your cart is empty.</p>
+      <a class="btn btn-primary" href="C:\sreerm\E-Commerce\html\products.html">Continue shopping</a>
+    </div>
+
+    <section id="checkoutLayout" class="checkout-layout hidden">
+      <!-- Left: form -->
+      <div class="form-section">
+        <div id="statusMsg" class="status" role="status" aria-live="polite"></div>
+
+        <form id="checkoutForm" novalidate>
+          <h3>Shipping Address</h3>
+
+          <div class="grid two">
+            <div class="field">
+              <label for="fullName">Full Name</label>
+              <input type="text" id="fullName" autocomplete="name" required />
+              <small class="hint"></small>
+            </div>
+
+            <div class="field">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" inputmode="numeric" placeholder="10-digit number" required />
+              <small class="hint"></small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="address1">Address</label>
+            <input type="text" id="address1" autocomplete="address-line1" required />
+            <small class="hint"></small>
+          </div>
+
+          <div class="field">
+            <label for="address2">Apartment, suite, etc. (optional)</label>
+            <input type="text" id="address2" autocomplete="address-line2" />
+          </div>
+
+          <div class="grid three">
+            <div class="field">
+              <label for="city">City</label>
+              <input type="text" id="city" autocomplete="address-level2" required />
+              <small class="hint"></small>
+            </div>
+
+            <div class="field">
+              <label for="state">State</label>
+              <input type="text" id="state" autocomplete="address-level1" required />
+              <small class="hint"></small>
+            </div>
+
+            <div class="field">
+              <label for="zip">PIN / ZIP Code</label>
+              <input type="text" id="zip" inputmode="numeric" placeholder="e.g., 560001" required />
+              <small class="hint"></small>
+            </div>
+          </div>
+
+          <label class="checkbox">
+            <input type="checkbox" id="saveAddress" checked />
+            Save this address for next time
+          </label>
+
+          <h3>Payment Method</h3>
+          <div class="radio-group" role="radiogroup" aria-label="Payment method">
+            <label><input type="radio" name="payment" value="cod" checked /> Cash on Delivery</label>
+            <label><input type="radio" name="payment" value="card" /> Credit / Debit Card</label>
+            <label><input type="radio" name="payment" value="upi" /> UPI</label>
+          </div>
+
+          <div id="cardFields" class="payment-box hidden">
+            <div class="field">
+              <label for="cardNumber">Card Number</label>
+              <input type="text" id="cardNumber" inputmode="numeric" placeholder="#### #### #### ####" />
+              <small class="hint"></small>
+            </div>
+            <div class="grid two">
+              <div class="field">
+                <label for="cardName">Name on Card</label>
+                <input type="text" id="cardName" />
+                <small class="hint"></small>
+              </div>
+              <div class="grid two tight">
+                <div class="field">
+                  <label for="cardExpiry">Expiry (MM/YY)</label>
+                  <input type="text" id="cardExpiry" inputmode="numeric" placeholder="MM/YY" />
+                  <small class="hint"></small>
+                </div>
+                <div class="field">
+                  <label for="cardCvv">CVV</label>
+                  <input type="password" id="cardCvv" inputmode="numeric" maxlength="4" placeholder="***" />
+                  <small class="hint"></small>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div id="upiField" class="payment-box hidden">
+            <div class="field">
+              <label for="upiId">UPI ID</label>
+              <input type="text" id="upiId" placeholder="example@bank" />
+              <small class="hint"></small>
+            </div>
+          </div>
+
+          <div class="field">
+            <label for="notes">Order Notes (optional)</label>
+            <textarea id="notes" rows="3" placeholder="Any delivery instructions?"></textarea>
+          </div>
+        </form>
+      </div>
+
+      <!-- Right: summary -->
+      <aside class="summary-section">
+        <div class="summary-card">
+          <h3>Order Summary</h3>
+
+          <div id="itemsList" class="items-list"></div>
+
+          <div class="row">
+            <span>Items total</span>
+            <strong id="itemsTotal">₹0</strong>
+          </div>
+          <div class="row">
+            <span>Discount <small id="couponTag" class="muted"></small></span>
+            <strong id="discountTotal">- ₹0</strong>
+          </div>
+          <div class="row">
+            <span>Shipping</span>
+            <strong id="shippingTotal">₹0</strong>
+          </div>
+          <hr />
+          <div class="row grand">
+            <span>Grand total</span>
+            <strong id="grandTotal">₹0</strong>
+          </div>
+
+          <div class="summary-actions">
+            <a class="btn btn-ghost" href="C:\sreerm\E-Commerce\html\cart.html">Edit cart</a>
+            <button id="placeOrderBtn" class="btn btn-primary" disabled>Place Order</button>
+          </div>
+
+          <div id="couponControls" class="coupon-controls hidden">
+            <small class="muted">Coupon applied. Change coupon in Cart.</small>
+          </div>
+        </div>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MyShop. All Rights Reserved.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

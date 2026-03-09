@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Products • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\product.css" />
+  <script defer src="C:\sreerm\E-Commerce\js\prodcutmain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\product.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a class="active" href="C:\sreerm\E-Commerce\html\product.html">Products</a>
+      <a href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Products</h2>
+
+    <!-- Controls -->
+    <section class="controls">
+      <div class="control-left">
+        <div class="search-wrap">
+          <input
+            type="search"
+            id="searchInput"
+            placeholder="Search products..."
+            autocomplete="off"
+            aria-label="Search products"
+          />
+          <button id="clearSearch" title="Clear search" aria-label="Clear search">✕</button>
+        </div>
+
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="all">All categories</option>
+        </select>
+      </div>
+
+      <div class="control-right">
+        <label for="sortSelect" class="sr-only">Sort by</label>
+        <select id="sortSelect" aria-label="Sort products">
+          <option value="popularity">Sort: Popular</option>
+          <option value="price-asc">Price: Low → High</option>
+          <option value="price-desc">Price: High → Low</option>
+          <option value="rating-desc">Rating: High → Low</option>
+          <option value="name-asc">Name: A → Z</option>
+        </select>
+      </div>
+    </section>
+
+    <p id="resultsInfo" class="results-info" aria-live="polite"></p>
+
+    <!-- Products grid -->
+    <section class="products-grid" id="productContainer" aria-live="polite">
+      <!-- Products will be injected by products.js -->
+    </section>
+  </main>
+
+  <!-- Toast (will be used by main.js) -->
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

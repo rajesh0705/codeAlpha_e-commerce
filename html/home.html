@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>E‑Commerce Home • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\home.css" />
+  <script defer src="C:\sreerm\E-Commerce\js\homemain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\home data.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\home.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a class="active" href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a href="C:\sreerm\E-Commerce\html\product.html">Product</a>
+      <a href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <section class="banner">
+    <h2>Welcome to MyShop</h2>
+    <p>Best products at the best prices</p>
+
+    <div class="search-bar">
+      <input id="homeSearch" type="search" placeholder="Search featured products..." aria-label="Search featured products" />
+      <button id="homeSearchClear" aria-label="Clear search">✕</button>
+    </div>
+  </section>
+
+  <main class="products">
+    <h3 class="section-title">Featured products</h3>
+    <div id="featuredContainer" class="products-grid" aria-live="polite">
+      <!-- Cards are rendered by home.js -->
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 MyShop. All Rights Reserved.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

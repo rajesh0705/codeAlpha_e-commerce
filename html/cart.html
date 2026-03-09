@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Cart • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\cart.css" />
+  <!-- Optional: include site-wide main.js for login/logout + toast -->
+  <!-- <script defer src="../js/main.js"></script> -->
+  <script defer src="C:\sreerm\E-Commerce\js\cartmain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\cart.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a href="C:\sreerm\E-Commerce\html\products.html">Products</a>
+      <a class="active" href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <h2>Your Cart</h2>
+
+    <div id="emptyState" class="empty hidden">
+      <p>Your cart is empty.</p>
+      <a class="btn btn-primary" href="C:\sreerm\E-Commerce\html\products.html">Shop products</a>
+    </div>
+
+    <section id="cartLayout" class="cart-layout hidden">
+      <div class="cart-items">
+        <table class="table" aria-label="Shopping cart items">
+          <thead>
+            <tr>
+              <th>Product</th>
+              <th class="right">Price</th>
+              <th class="qty-col">Quantity</th>
+              <th class="right">Subtotal</th>
+              <th class="center">Action</th>
+            </tr>
+          </thead>
+          <tbody id="cartBody"></tbody>
+        </table>
+
+        <div class="cart-actions">
+          <button id="clearCartBtn" class="btn btn-ghost">Clear cart</button>
+          <a class="btn btn-link" href="C:\sreerm\E-Commerce\html\products.html">Continue shopping</a>
+        </div>
+      </div>
+
+      <aside class="summary">
+        <h3>Price details</h3>
+
+        <div class="coupon">
+          <input type="text" id="couponInput" placeholder="Have a coupon? e.g., SAVE10" />
+          <button id="applyCouponBtn" class="btn btn-ghost">Apply</button>
+          <button id="removeCouponBtn" class="btn btn-ghost danger hidden">Remove</button>
+          <small id="couponMsg" class="muted"></small>
+        </div>
+
+        <div class="row">
+          <span>Items total</span>
+          <strong id="itemsTotal">₹0</strong>
+        </div>
+        <div class="row">
+          <span>Discount</span>
+          <strong id="discountTotal">- ₹0</strong>
+        </div>
+        <div class="row">
+          <span>Shipping</span>
+          <strong id="shippingTotal">₹0</strong>
+        </div>
+        <hr />
+        <div class="row grand">
+          <span>Grand total</span>
+          <strong id="grandTotal">₹0</strong>
+        </div>
+
+        <button id="checkoutBtn" class="btn btn-primary" disabled>Checkout</button>
+      </aside>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MyShop. All Rights Reserved.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

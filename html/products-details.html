@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Product Details • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\product-details.css" />
+  <!-- If you already use a site-wide main.js, you can use that instead of productmain.js -->
+  <script defer src="C:\sreerm\E-Commerce\js\prodcutmain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\data.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\details.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a href="C:\sreerm\E-Commerce\html\products.html">Products</a>
+      <a href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="C:\sreerm\E-Commerce\html\products.html">Products</a>
+      <span aria-hidden="true">›</span>
+      <a id="crumbCategory" href="C:\sreerm\E-Commerce\html\products.html">Category</a>
+      <span aria-hidden="true">›</span>
+      <span id="crumbName" aria-current="page">Product</span>
+    </nav>
+
+    <section class="product-details">
+      <div class="gallery">
+        <img id="mainImage" class="main-image" src="" alt="Product image" loading="eager" />
+        <div id="thumbs" class="thumbs" role="list"></div>
+      </div>
+
+      <div class="details">
+        <h2 id="productName">Product Name</h2>
+
+        <div class="meta-row">
+          <span class="badge" id="productCategory">Category</span>
+          <span class="rating" aria-label="Rating">
+            <span id="ratingStars">★★★★★</span>
+            <span id="ratingValue" class="rating-val"></span>
+          </span>
+        </div>
+
+        <div class="price-row">
+          <div class="price" id="productPrice">₹0</div>
+          <div class="muted" id="stockStatus">In stock</div>
+        </div>
+
+        <p id="productDesc" class="description">Product description goes here.</p>
+
+        <div class="qty-actions">
+          <div class="qty-stepper" aria-label="Quantity">
+            <button id="btnMinus" type="button" aria-label="Decrease quantity">−</button>
+            <input id="qtyInput" type="number" min="1" max="10" step="1" value="1" inputmode="numeric" />
+            <button id="btnPlus" type="button" aria-label="Increase quantity">+</button>
+          </div>
+
+          <div class="actions">
+            <button id="btnAdd" class="btn btn-primary">Add to cart</button>
+            <button id="btnBuy" class="btn btn-ghost">Buy now</button>
+            <button id="btnShare" class="btn btn-ghost">Share</button>
+          </div>
+        </div>
+
+        <ul id="featureList" class="features" aria-label="Key features"></ul>
+      </div>
+    </section>
+
+    <section class="related-products">
+      <h3>Related products</h3>
+      <div id="relatedContainer" class="products-grid"></div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MyShop. All Rights Reserved.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

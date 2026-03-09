@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Register • MyShop</title>
+
+  <!-- From html/ to css/ -->
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\register.css" />
+
+  <!-- Shared logic (auth, cart, toast, header) -->
+  <script defer src="C:\sreerm\frontend\js\main.js"></script>
+
+  <!-- Page-specific register logic -->
+  <script defer src="C:\sreerm\frontend\js\register.js"></script>
+</head>
+<body>
+  <div class="register-container">
+    <form id="registerForm" class="register-box" autocomplete="on" novalidate>
+      <h2>Create account</h2>
+
+      <p id="globalMsg" class="global-msg"></p>
+
+      <div class="input-group" id="group-username">
+        <input type="text" id="regUsername" name="username" required />
+        <label for="regUsername">Username</label>
+        <small class="msg" id="msg-username"></small>
+      </div>
+
+      <div class="input-group" id="group-email">
+        <input type="email" id="regEmail" name="email" required />
+        <label for="regEmail">Email</label>
+        <small class="msg" id="msg-email"></small>
+      </div>
+
+      <div class="input-group" id="group-password">
+        <input type="password" id="regPassword" name="password" required />
+        <label for="regPassword">Password</label>
+        <button
+          type="button"
+          class="toggle"
+          id="togglePw"
+          aria-label="Show password"
+          aria-pressed="false"
+        >👁</button>
+        <small class="msg" id="msg-password"></small>
+
+        <!-- strength bar -->
+        <div class="strength" aria-hidden="true">
+          <div class="bar" id="pwBar"></div>
+        </div>
+
+        <!-- password requirements -->
+        <ul class="reqs" id="pwReqs">
+          <li data-rule="len">At least 8 characters</li>
+          <li data-rule="num">At least 1 number</li>
+          <li data-rule="upper">At least 1 uppercase letter</li>
+          <li data-rule="special">At least 1 symbol (!@#$...)</li>
+        </ul>
+      </div>
+
+      <div class="input-group" id="group-confirm">
+        <input
+          type="password"
+          id="regConfirmPassword"
+          name="confirmPassword"
+          required
+        />
+        <label for="regConfirmPassword">Confirm password</label>
+        <button
+          type="button"
+          class="toggle"
+          id="togglePw2"
+          aria-label="Show password"
+          aria-pressed="false"
+        >👁</button>
+        <small class="msg" id="msg-confirm"></small>
+      </div>
+
+      <label class="terms">
+        <input type="checkbox" id="terms" />
+        I agree to the
+        <a href="#" id="termsLink">Terms &amp; Conditions</a>
+      </label>
+
+      <button id="submitBtn" type="submit" class="btn">
+        <span>Create account</span>
+      </button>
+
+      <p class="alt">
+        Already have an account?
+        <a href="C:\sreerm\frontend\html\login.html">Log in</a>
+      </p>
+    </form>
+  </div>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>

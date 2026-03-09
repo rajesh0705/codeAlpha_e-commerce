@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Order Confirmation • MyShop</title>
+  <link rel="stylesheet" href="C:\sreerm\E-Commerce\css\orderconfirmation.css" />
+  <script defer src="C:\sreerm\E-Commerce\js\orderconfirmationmain.js"></script>
+  <script defer src="C:\sreerm\E-Commerce\js\orderconfirmation.js"></script>
+</head>
+<body>
+  <header>
+    <h1>MyShop</h1>
+    <nav>
+      <a href="C:\sreerm\E-Commerce\html\home.html">Home</a>
+      <a href="C:\sreerm\E-Commerce\html\products.html">Products</a>
+      <a href="C:\sreerm\E-Commerce\html\cart.html">Cart (<span id="cartCount">0</span>)</a>
+      <a href="C:\sreerm\E-Commerce\html\login.html" id="loginBtn">Login</a>
+    </nav>
+  </header>
+
+  <main class="container">
+    <section id="notFound" class="empty hidden" role="status" aria-live="polite">
+      <h2>We can’t find that order</h2>
+      <p class="muted">Your order may have expired or you navigated here directly.</p>
+      <div class="actions">
+        <a class="btn btn-ghost" href="C:\sreerm\E-Commerce\html\cart.html">Go to cart</a>
+        <a class="btn btn-primary" href="C:\sreerm\E-Commerce\html\products.html">Continue shopping</a>
+      </div>
+    </section>
+
+    <section id="confirmCard" class="confirmation-card hidden">
+      <div class="icon">✅</div>
+      <h2>Order placed successfully!</h2>
+      <p class="muted">Thanks for shopping with us. A confirmation has been saved to your account.</p>
+
+      <div class="meta">
+        <div>
+          <span class="label">Order ID</span>
+          <div class="value">
+            <code id="orderId">—</code>
+            <button id="copyIdBtn" class="chip" title="Copy Order ID">Copy</button>
+          </div>
+        </div>
+        <div>
+          <span class="label">Placed on</span>
+          <div class="value" id="orderDate">—</div>
+        </div>
+        <div>
+          <span class="label">Payment</span>
+          <div class="value" id="paymentMethod">—</div>
+        </div>
+        <div>
+          <span class="label">Total</span>
+          <div class="value" id="orderAmount">₹0</div>
+        </div>
+      </div>
+
+      <div class="delivery">
+        <span class="label">Estimated delivery</span>
+        <div class="value" id="deliveryEta">—</div>
+      </div>
+
+      <div class="layout">
+        <div class="left">
+          <h3>Items</h3>
+          <div id="itemsList" class="items-list"></div>
+        </div>
+
+        <aside class="right">
+          <h3>Shipping address</h3>
+          <address id="shipTo" class="address">—</address>
+
+          <div class="totals">
+            <div class="row">
+              <span>Items total</span>
+              <strong id="itemsTotal">₹0</strong>
+            </div>
+            <div class="row">
+              <span>Discount</span>
+              <strong id="discountTotal">- ₹0</strong>
+            </div>
+            <div class="row">
+              <span>Shipping</span>
+              <strong id="shippingTotal">₹0</strong>
+            </div>
+            <hr />
+            <div class="row grand">
+              <span>Grand total</span>
+              <strong id="grandTotal">₹0</strong>
+            </div>
+          </div>
+
+          <div class="actions">
+            <button id="btnContinue" class="btn btn-primary">Continue shopping</button>
+            <button id="btnPrint" class="btn btn-ghost">Print receipt</button>
+            <button id="btnShare" class="btn btn-ghost">Share</button>
+            <button id="btnTrack" class="btn btn-ghost">Track order</button>
+          </div>
+        </aside>
+      </div>
+
+      <div id="trackPanel" class="track hidden">
+        <h3>Tracking</h3>
+        <ol class="steps" id="trackSteps">
+          <li class="done">Order placed</li>
+          <li>Processing</li>
+          <li>Shipped</li>
+          <li>Out for delivery</li>
+          <li>Delivered</li>
+        </ol>
+        <p class="muted">We’ll update the status as your order moves through the courier.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>&copy; 2026 MyShop. All Rights Reserved.</p>
+  </footer>
+
+  <div id="toast" role="status" aria-live="polite" aria-atomic="true"></div>
+</body>
+</html>
